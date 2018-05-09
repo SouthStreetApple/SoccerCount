@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">SoccerCount</string>
+    <string name="title">Soccer Score Keeper</string>
+    <string name="reset_button">Reset</string>
+    <string name="foul_button_b">Foul</string>
+    <string name="goal_button_b">Goal</string>
+    <string name="team_name_b">Team B</string>
+    <string name="foul_button_a">Foul</string>
+    <string name="goal_button_a">Goal</string>
+    <string name="team_name_a">Team A</string>
+    <string name="plus_minus">(+/-)</string>
 </resources>

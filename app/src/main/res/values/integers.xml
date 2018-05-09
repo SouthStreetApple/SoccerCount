@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="foul_view_b">0</integer>
+    <integer name="goal_view_b">0</integer>
+    <integer name="foul_view_a">0</integer>
+    <integer name="goal_view_a">0</integer>
+    <integer name="difference_view_a">0</integer>
+    <integer name="difference_view_b">0</integer>
+</resources>

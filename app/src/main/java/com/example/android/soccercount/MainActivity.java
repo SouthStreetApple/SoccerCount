@@ -7,13 +7,9 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    /*
-    int threePoint = 3;
-    int twoPoint = 2;
-    int freeThrow = 1;
-    int totalShots = 0;
-    int fouls = 0;
-    */
+    /**
+     * Variables for the team scores and fouls.
+     */
     int scoreTeamA = 0;
     int scoreTeamB = 0;
     int foulTeamA = 0;
@@ -34,14 +30,16 @@ public class MainActivity extends AppCompatActivity {
         scoreView.setText(String.valueOf(score));
     }
 
+    /**
+     * Displays the given score for Team B.
+     */
     public void displayForTeamB(int score) {
         TextView scoreView = (TextView) findViewById(R.id.team_b_score);
         scoreView.setText(String.valueOf(score));
     }
 
     /**
-     *
-     * Code that adds goals or fouls when buttons are pressed.
+     * Code that adds goals for Team A.
      */
     public void addOneForTeamA(View view) {
         scoreTeamA = scoreTeamA + 1;
@@ -50,62 +48,92 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
+    /**
+     * Code that adds goals for Team B.
+     */
     public void addOneForTeamB(View view) {
         scoreTeamB = scoreTeamB + 1;
         displayForTeamB(scoreTeamB);
         calculateRelative();
     }
 
+    /**
+     * This code resets all the variables and views to ZERO.
+     */
     public void resetTeams(View view) {
-        scoreTeamA = 0;
-        scoreTeamB = 0;
-        foulTeamA = 0;
-        foulTeamB =0;
+        scoreTeamA = getResources().getInteger(R.integer.goal_view_a);
+        scoreTeamB = getResources().getInteger(R.integer.goal_view_b);
+        foulTeamA = getResources().getInteger(R.integer.foul_view_a);
+        foulTeamB = getResources().getInteger(R.integer.foul_view_b);
         displayForTeamA(scoreTeamA);
         displayForTeamB(scoreTeamB);
-        displayDiffTeamA(0);
-        displayDiffTeamB(0);
+        displayDiffTeamA(getResources().getInteger(R.integer.difference_view_a));
+        displayDiffTeamB(getResources().getInteger(R.integer.difference_view_b));
         displayFoulTeamA(foulTeamA);
         displayFoulTeamB(foulTeamB);
     }
 
     /**
-     * Code that calculates the +/- of the teams position relative to the other teams score.
+     * Code that calculates the +/- of the teams position relative to the
+     * other teams score (the difference between scores).
+     * Also displays this on the appropriate views.
      */
-    private void calculateRelative(){
+    private void calculateRelative() {
         int teamADifference;
         int teamBDifference;
-        teamADifference = scoreTeamA-scoreTeamB;
-        teamBDifference = scoreTeamB-scoreTeamA;
+        teamADifference = scoreTeamA - scoreTeamB;
+        teamBDifference = scoreTeamB - scoreTeamA;
         //Display these differences...
         displayDiffTeamA(teamADifference);
         displayDiffTeamB(teamBDifference);
     }
+
+    /**
+     * Displays the Difference (or how much a team is ahead or behind,
+     * for Team A
+     */
     public void displayDiffTeamA(int score) {
         TextView scoreView = (TextView) findViewById(R.id.team_a_diff);
         scoreView.setText(String.valueOf(score));
     }
+
+    /**
+     * Displays the Difference (or how much a team is ahead or behind,
+     * for Team A
+     */
     public void displayDiffTeamB(int score) {
         TextView scoreView = (TextView) findViewById(R.id.team_b_diff);
         scoreView.setText(String.valueOf(score));
     }
+
+
     /**
-     * Calculate fouls
+     * Add Foul for Team A
      */
     public void addOneFoulTeamA(View view) {
         foulTeamA = foulTeamA + 1;
         displayFoulTeamA(foulTeamA);
     }
+
+    /**
+     * Add Foul for Team B
+     */
     public void addOneFoulTeamB(View view) {
         foulTeamB = foulTeamB + 1;
         displayFoulTeamB(foulTeamB);
     }
+
+    /**
+     * Display Foul for Team A
+     */
     public void displayFoulTeamA(int foul) {
         TextView scoreView = (TextView) findViewById(R.id.team_a_foul);
         scoreView.setText(String.valueOf(foul));
     }
 
+    /**
+     * Display Foul for Team B
+     */
     public void displayFoulTeamB(int foul) {
         TextView scoreView = (TextView) findViewById(R.id.team_b_foul);
         scoreView.setText(String.valueOf(foul));
